@@ -1,13 +1,4 @@
-// const THREE = require('three');
-// const { debounce } = require('@ykob/js-util');
-//
-// const SmoothScrollManager = require('../smooth_scroll_manager/SmoothScrollManager').default;
-// const TitleObject = require('./TitleObject').default;
-// const SkyOctahedron = require('./SkyOctahedron').default;
-// const SkyOctahedronShell = require('./SkyOctahedronShell').default;
-// const Ground = require('./Ground').default;
-// const Debris = require('./Debris').default;
-// const PostEffect = require('./PostEffect').default;
+
 
 import * as THREE from "three"
 import {debounce} from "@ykob/js-util"
@@ -23,6 +14,7 @@ export default function() {
   const scrollManager = new SmoothScrollManager();
 
   const canvas = document.getElementById('canvas-webgl');
+  // canvas.getContext( 'webgl2' );
   const renderer = new THREE.WebGL1Renderer({
     antialias: false,
     canvas: canvas,
@@ -35,8 +27,8 @@ export default function() {
   const clock = new THREE.Clock();
 
   const titleObject = new TitleObject();
-  const skyOctahedron = new SkyOctahedron();
-  const skyOctahedronShell = new SkyOctahedronShell();
+  // const skyOctahedron = new SkyOctahedron();
+  // const skyOctahedronShell = new SkyOctahedronShell();
   const ground = new Ground();
   const debris = [
      new Debris(400, -500, 200),
@@ -49,7 +41,7 @@ export default function() {
   ];
   const postEffect = new PostEffect(renderBack.texture);
 
-  const elemIntro = document.getElementsByClassName('js-transition-intro');
+  // const elemIntro = document.getElementsByClassName('js-transition-intro');
 
   const resizeWindow = () => {
     canvas.width = document.body.clientWidth;
@@ -63,8 +55,8 @@ export default function() {
   const render = () => {
     const time = clock.getDelta();
     titleObject.render(time);
-    skyOctahedron.render(time);
-    skyOctahedronShell.render(time);
+    // skyOctahedron.render(time);
+    // skyOctahedronShell.render(time);
     ground.render(time);
     for (var i = 0; i < debris.length; i++) {
       debris[i].render(time);
@@ -92,12 +84,12 @@ export default function() {
       }
     }
   }
-  const transitionOnload = () => {
-    for (var i = 0; i < elemIntro.length; i++) {
-      const elm = elemIntro[i];
-      elm.classList.add('is-shown');
-    }
-  }
+  // const transitionOnload = () => {
+  //   for (var i = 0; i < elemIntro.length; i++) {
+  //     const elm = elemIntro[i];
+  //     elm.classList.add('is-shown');
+  //   }
+  // }
 
   const init = () => {
     renderer.setSize(document.body.clientWidth, window.innerHeight);
@@ -107,13 +99,13 @@ export default function() {
     scene.add(postEffect.obj);
     titleObject.loadTexture(() => {
       sceneBack.add(titleObject.obj);
-      sceneBack.add(skyOctahedron.obj);
-      sceneBack.add(skyOctahedronShell.obj);
+      // sceneBack.add(skyOctahedron.obj);
+      // sceneBack.add(skyOctahedronShell.obj);
       sceneBack.add(ground.obj);
       for (var i = 0; i < debris.length; i++) {
         sceneBack.add(debris[i].obj);
       }
-      transitionOnload();
+      // transitionOnload();
     });
 
     clock.start();

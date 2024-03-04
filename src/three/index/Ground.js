@@ -2,8 +2,8 @@
 // const { MathEx } = require('@ykob/js-util');
 import * as Three from "three";
 import {MathEx} from "@ykob/js-util";
-import groundvs from "./glsl/ground.fs"
-import groundfs from "./glsl/ground.fs"
+import groundvs from "./glsl/ground.vs.glsl"
+import groundfs from "./glsl/ground.fs.glsl"
 
 
 export default class Ground {

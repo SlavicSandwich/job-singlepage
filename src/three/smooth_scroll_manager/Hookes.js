@@ -1,7 +1,6 @@
 // const Force3 = require('../common/Force3').default;
-import * as Force from "../common/Force3"
+import Force3 from "../common/Force3"
 
-const Force3 = Force.default
 
 export default class Hookes {
   constructor(opt) {

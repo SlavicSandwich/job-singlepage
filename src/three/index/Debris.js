@@ -1,6 +1,6 @@
 import * as Three from "three"
-import debrisvs from "./glsl/debris.vs"
-import debrisfs from "./glsl/debris.fs"
+import debrisvs from "./glsl/debris.vs.glsl"
+import debrisfs from "./glsl/debris.fs.glsl"
 
 export default class Debris {
     constructor(x, y, z) {
@@ -23,8 +23,8 @@ export default class Debris {
             new Three.BoxGeometry(100, 100, 100),
             new Three.RawShaderMaterial({
                 uniforms: this.uniforms,
-                vertexShader: debrisvs.default,
-                fragmentShader: debrisfs.default,
+                vertexShader: debrisvs,
+                fragmentShader: debrisfs,
                 transparent: true,
                 wireframe: true
             })

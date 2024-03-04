@@ -1,7 +1,7 @@
 // const THREE = require('three');
 import * as THREE from "three"
-import OctahedronShellvs from "./glsl/skyOctahedronShell.vs"
-import OctahedronShellfs from "./glsl/skyOctahedronShell.fs"
+import OctahedronShellvs from "./glsl/skyOctahedronShell.vs.glsl"
+import OctahedronShellfs from "./glsl/skyOctahedronShell.fs.glsl"
 
 
 export default class SkyOctahedronShell {

@@ -1,0 +1,57 @@
+{
+  "_from": "@ykob/glsl-util@1.1.0",
+  "_id": "@ykob/glsl-util@1.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-ryEw6AJnoTDJoTV9dzfqA+ZpKmcsKLHGEwaYiVT94KmcsmFSOrMtM8HK+WZPDEvZnVAFFfmxs2PTrL6iVW/S7Q==",
+  "_location": "/@ykob/glsl-util",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@ykob/glsl-util@1.1.0",
+    "name": "@ykob/glsl-util",
+    "escapedName": "@ykob%2fglsl-util",
+    "scope": "@ykob",
+    "rawSpec": "1.1.0",
+    "saveSpec": null,
+    "fetchSpec": "1.1.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@ykob/glsl-util/-/glsl-util-1.1.0.tgz",
+  "_shasum": "5a85dd49040a4c7f3fd378e6a7920a9319a47433",
+  "_spec": "@ykob/glsl-util@1.1.0",
+  "_where": "E:\\projects\\job-singlepage",
+  "author": {
+    "name": "Yoichi Kobayashi",
+    "email": "info@tplh.net",
+    "url": "https://www.tplh.net/"
+  },
+  "browserify": {
+    "transform": "glslify"
+  },
+  "bugs": {
+    "url": "https://github.com/ykob/glsl-util/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Private GLSL utility functions created by @ykob",
+  "homepage": "https://github.com/ykob/glsl-util#readme",
+  "keywords": [
+    "glsl",
+    "glslify"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@ykob/glsl-util",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ykob/glsl-util.git"
+  },
+  "version": "1.1.0"
+}

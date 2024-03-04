@@ -1,8 +1,8 @@
 // const THREE = require('three');
 import * as THREE from "three"
 
-import Octahedronvs from "./glsl/skyOctahedron.vs"
-import Octahedronfs from "./glsl/skyOctahedron.fs"
+import Octahedronvs from "./glsl/skyOctahedron.vs.glsl"
+import Octahedronfs from "./glsl/skyOctahedron.fs.glsl"
 
 
 const computeFaceNormal = (v0, v1, v2) => {

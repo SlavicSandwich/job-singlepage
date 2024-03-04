@@ -1,7 +1,7 @@
 // const THREE = require('three');
 import * as THREE from "three"
-import postEffectvs from "./glsl/postEffect.vs"
-import postEffectfs from "./glsl/postEffect.fs"
+import postEffectvs from "./glsl/postEffect.vs.glsl"
+import postEffectfs from "./glsl/postEffect.fs.glsl"
 
 
 export default class PostEffect {

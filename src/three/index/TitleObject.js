@@ -1,7 +1,7 @@
 // const THREE = require('three');
 import * as THREE from "three"
-import titleObjectvs from "./glsl/titleObject.vs"
-import titleObjectfs from "./glsl/titleObject.fs"
+import titleObjectvs from "./glsl/titleObject.vs.glsl"
+import titleObjectfs from "./glsl/titleObject.fs.glsl"
 
 export default class TitleObject {
     constructor() {
@@ -25,7 +25,7 @@ export default class TitleObject {
 
     loadTexture(callback) {
         const loader = new THREE.TextureLoader();
-        loader.load('/sketch-threejs/img/index/tex_title.png', (texture) => {
+        loader.load('src/img/index/man.png', (texture) => {
             texture.magFilter = THREE.NearestFilter;
             texture.minFilter = THREE.NearestFilter;
             this.uniforms.texture.value = texture;
