@@ -1,5 +1,3 @@
-
-
 import * as THREE from "three"
 import {debounce} from "@ykob/js-util"
 import SmoothScrollManager from "../smooth_scroll_manager/SmoothScrollManager.js";
@@ -9,9 +7,12 @@ import SkyOctahedronShell from "./SkyOctahedronShell.js";
 import Ground from "./Ground";
 import Debris from "./Debris";
 import PostEffect from "./PostEffect";
+import {gsap} from "gsap";
+import {ScrollTrigger} from 'gsap/ScrollTrigger.js'
 
 export default function() {
-  const scrollManager = new SmoothScrollManager();
+  const contents = document.querySelector('.js-contents');
+  const dummyScroll = document.querySelector('.js-dummy-scroll');
 
   const canvas = document.getElementById('canvas-webgl');
   // canvas.getContext( 'webgl2' );
@@ -25,6 +26,8 @@ export default function() {
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
   const cameraBack = new THREE.PerspectiveCamera(45, document.body.clientWidth / window.innerHeight, 1, 10000);
   const clock = new THREE.Clock();
+  const scrollManager = new SmoothScrollManager(contents, dummyScroll, renderer);
+
 
   const titleObject = new TitleObject();
   // const skyOctahedron = new SkyOctahedron();
@@ -34,10 +37,15 @@ export default function() {
      new Debris(400, -500, 200),
      new Debris(-350, -600, -50),
      new Debris(-150, -700, -150),
-     new Debris(-500, -900, 0),
+     new Debris(-500, -800, 0),
      new Debris(100, -1100, 250),
      new Debris(-100, -1200, -300),
      new Debris(150, -1500, -100),
+    new Debris(-800, -1900, -400),
+    new Debris(-175, -2000, -200),
+    new Debris(600, -1700, -1000),
+    new Debris(400, -2100, -100),
+
   ];
   const postEffect = new PostEffect(renderBack.texture);
 
@@ -79,7 +87,25 @@ export default function() {
     scrollManager.renderNext = () => {
       if (scrollManager.isValidSmooth()) {
         cameraBack.position.y = scrollManager.hookes.contents.velocity[1] * 0.6;
+        console.log(cameraBack.position.y)
+        if (cameraBack.position.y < -400 && cameraBack.position.y > -450){
+          gsap.to(sceneBack.background, {
+            duration: 1,
+            r: 0,
+            g: 0,
+            b: 0
+          })
+        }
+        if (cameraBack.position.y < -450 && cameraBack.position.y){
+          gsap.to(sceneBack.background, {
+            duration: 1,
+            r: 1,
+            g: 1,
+            b: 1
+          })
+        }
       } else {
+        // renderer.setClearColor(Math.floor(Math.random()*16777215))
         cameraBack.position.y = scrollManager.scrollTop * -1;
       }
     }
@@ -93,7 +119,9 @@ export default function() {
 
   const init = () => {
     renderer.setSize(document.body.clientWidth, window.innerHeight);
-    renderer.setClearColor(0x111111, 1.0);
+    // renderer.setClearColor(0x000000, 1.0);
+    sceneBack.background = new THREE.Color(0x000000);
+    // console.log()
     cameraBack.position.z = 800;
 
     scene.add(postEffect.obj);

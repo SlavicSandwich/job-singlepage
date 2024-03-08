@@ -11,5 +11,5 @@ vec3 convertHsvToRgb(vec3 c) {
 void main() {
   vec3 hsv = vec3(0.5 + time * 0.1, 0.4, 1.0);
   vec3 rgb = convertHsvToRgb(hsv);
-  gl_FragColor = vec4(rgb, 0.25);
+  gl_FragColor = vec4(vec3(0, 0, 0), 1);
 }

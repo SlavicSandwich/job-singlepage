@@ -14,7 +14,10 @@ const contents = document.querySelector('.js-contents');
 const dummyScroll = document.querySelector('.js-dummy-scroll');
 
 export default class SmoothScrollManager {
-  constructor() {
+  constructor(contents, dummyScroll, renderer) {
+    this.renderer = renderer;
+    this.contents = contents
+    this.dummyScroll = dummyScroll
     this.scrollItems = new ScrollItems(this);
     this.scrollTop = 0;
     this.scrollFrame = 0;
@@ -73,7 +76,7 @@ export default class SmoothScrollManager {
   pause() {
     // スムーススクロールの一時停止
     this.isWorking = false;
-    contents.style.position = 'fixed';
+    this.contents.style.position = 'fixed';
     // スマホ時には本文のtranslate値を更新してスクロールを固定する。
     this.hookes.contents.velocity[1] = this.hookes.contents.anchor[1] = this.scrollTop * -1;
     this.scrollTopPause = this.scrollTop;
@@ -81,7 +84,7 @@ export default class SmoothScrollManager {
   }
   play() {
     // スムーススクロールの再生
-    contents.style.position = '';
+    this.contents.style.position = '';
     this.scrollTop = this.scrollTopPause;
     // スマホ時には本文のtranslate値をゼロにしてスクロールを復帰させる。
     if (this.resolution.x <= this.X_SWITCH_SMOOTH) {
@@ -93,12 +96,12 @@ export default class SmoothScrollManager {
   initDummyScroll() {
     // ダミースクロールの初期化
     if (this.resolution.x <= this.X_SWITCH_SMOOTH) {
-      contents.style.transform = '';
-      contents.classList.remove('is-fixed');
-      dummyScroll.style.height = `0`;
+      this.contents.style.transform = '';
+      this.contents.classList.remove('is-fixed');
+      this.dummyScroll.style.height = `0`;
     } else {
-      contents.classList.add('is-fixed');
-      dummyScroll.style.height = `${contents.clientHeight}px`;
+      this.contents.classList.add('is-fixed');
+      this.dummyScroll.style.height = `${this.contents.clientHeight}px`;
     }
     this.render();
   }
@@ -129,6 +132,7 @@ export default class SmoothScrollManager {
     const pageYOffset = window.pageYOffset;
     this.scrollFrame = pageYOffset - this.scrollTop;
     this.scrollTop = pageYOffset;
+    // this.renderer.setClearColor(Math.floor(Math.random()*16777215))
     // 個別のスクロールイベントを実行
     if (this.scrollPrev) this.scrollPrev();
     this.scrollBasis();
@@ -192,7 +196,7 @@ export default class SmoothScrollManager {
     if (this.renderPrev) this.renderPrev();
     // 本文全体のラッパー(contents)をレンダリング
     const y = Math.floor(this.hookes.contents.velocity[1] * 1000) / 1000;
-    contents.style.transform = `translate3D(0, ${y}px, 0)`;
+    this.contents.style.transform = `translate3D(0, ${y}px, 0)`;
     // Hookesオブジェクトをレンダリング
     for (var key in this.hookes) {
       this.hookes[key].render();

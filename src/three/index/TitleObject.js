@@ -3,6 +3,8 @@ import * as THREE from "three"
 import titleObjectvs from "./glsl/titleObject.vs.glsl"
 import titleObjectfs from "./glsl/titleObject.fs.glsl"
 
+
+
 export default class TitleObject {
     constructor() {
         this.uniforms = {
@@ -28,16 +30,24 @@ export default class TitleObject {
         loader.load('src/img/index/man.png', (texture) => {
             texture.magFilter = THREE.NearestFilter;
             texture.minFilter = THREE.NearestFilter;
-            this.uniforms.texture.value = texture;
+            // this.uniforms.texture.value = texture;
             this.obj = this.createObj();
             this.isLoaded = true;
             callback();
         });
+        // loader.load(videoTexture, (texture) => {
+        //     texture.magFilter = THREE.NearestFilter;
+        //     texture.minFilter = THREE.NearestFilter;
+        //     this.uniforms.texture.value = texture;
+        //     this.obj = this.createObj();
+        //     this.isLoaded = true;
+        //     callback();
+        // });
     }
 
     createObj() {
         return new THREE.Mesh(
-            new THREE.PlaneGeometry(256, 64, 40, 10),
+            new THREE.PlaneGeometry(256, 256, 40, 10),
             new THREE.RawShaderMaterial({
                 uniforms: this.uniforms,
                 vertexShader: titleObjectvs,
