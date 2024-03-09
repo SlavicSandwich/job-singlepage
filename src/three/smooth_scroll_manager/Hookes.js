@@ -1,5 +1,5 @@
 // const Force3 = require('../common/Force3').default;
-import Force3 from "../common/Force3"
+import Force3 from "/src/three/common/force3.js"
 
 
 export default class Hookes {
