@@ -1,11 +1,13 @@
 @font-face {
   font-family: "Walsheim";
-  src: url("src/fonts/gt-walsheim/GT-Walsheim-Pro-Condensed-Medium.woff");
+  src: url("src/fonts/gt-walsheim/GT-Walsheim-Pro-Condensed-Black-Oblique.woff");
 }
 @font-face {
   font-family: "LTSuperior";
   src: url("src/fonts/LTSuperior/LTSuperior-Semibold.otf");
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 html {
   height: 100%;

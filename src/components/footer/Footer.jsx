@@ -1,11 +1,11 @@
 export default function Footer() {
     return (
-        <footer className="bg-black">
-            <div className="mx-auto h-auto w-full max-w-screen-xl " >
+        <footer className="bg-black relative z-10">
+            <div className="mx-auto min-h-fit w-lvw max-w-screen-xl flex flex-col justify-between" >
                 <div
-                    className="border-b-2 border-b-gray-500 flex pt-80 pb-60 w-full justify-center align-middle flex-col px-4 gap-16 md:grid-cols-4">
-                    <img src={"./src/img/index/0_oko_ 3.svg"} alt={"eye logo here"} className="p-introduction__img"/>
-                    <h2 className=" text-center text-9xl font-bold text-gray-900 uppercase dark:text-white">Давайте
+                    className=" flex pb-60 w-full justify-center align-middle flex-col gap-16 md:grid-cols-4">
+                    <img src={"./src/img/index/0_oko_ 3.svg"} alt={"eye logo here"} className="w-1/5 mx-auto"/>
+                    <h2 className=" text-center text-4xl font-bold text-gray-900 uppercase dark:text-white">Давайте
                         работать вместе.</h2>
                     <div className="flex justify-center gap-8 align-middle ">
                         <button type="button"
@@ -18,7 +18,7 @@ export default function Footer() {
                         </button>
                     </div>
                 </div>
-                <div className="px-4 py-6 bg-black md:flex md:items-center md:justify-between">
+                <div className="px-4 py-6 bg-black md:flex md:items-center md:justify-between border-t-2 border-t-gray-500">
                     <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">©
                         2024 Oko™. Все права защищены.
                     </span>

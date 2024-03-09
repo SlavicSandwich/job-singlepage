@@ -14,20 +14,17 @@ const App = () => {
     // };
     useEffect(() =>{
         wave();
-        setTimeout(function () {
-            window.scrollTo(0, 300);
-        },2);
     }, [])
     return (
         <>
-            <div className={"l-page"}>
+            <div>
                 <div className={"l-contents js-contents"}>
                     <Hero/>
                     <Main/>
                     <Footer/>
                 </div>
             </div>
-            <p className={'p-dummy-scroll js-dummy-scroll'}></p>
+            <p className={'relative z-1 js-dummy-scroll'}></p>
             <canvas className={"p-canvas-webgl"} id={'canvas-webgl'}></canvas>
         </>
     );

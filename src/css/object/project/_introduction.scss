@@ -16,8 +16,9 @@
   z-index: 10;
   color: #fff;
   text-align: center;
-  letter-spacing: 0.2em;
-  font-family: 'Walsheim', sans-serif;
+  //letter-spacing: 0.2em;
+  //font-family: 'Walsheim', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 50px;
   &__img{
     width: 300px;
@@ -25,10 +26,10 @@
   }
   &__wrap {
     position: absolute;
-    right: 0; bottom: 600px; left: 0;
+    right: 0; bottom: 40lvh; left: 0;
   }
   &__row {
-    opacity: 0;
+    //opacity: 0;
     transform: translateY(-10px);
     transition-property: opacity, transform;
     &.is-shown {
