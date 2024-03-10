@@ -1,19 +1,16 @@
-export default function Card({image, span, bigText, smallText}) {
+export default function({image, bigText, smallText}){
     return (
-        <div
-            className={"max-w-sm bg-opacity-60 bg-black border border-gray-200 rounded-xl shadow " + span}>
-            <a href="#">
-                <img className="rounded-t-lg rounded-b-2xl" src={image} alt=""/>
-            </a>
-            <div className="p-5 rounded-t-2xl">
-                <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
-                        {bigText}
-                    </h5>
-                </a>
-                <p className="mb-3 font-normal text-white ">{smallText}</p>
+        <div className="w-full mb-10 sm:mb-0 sm:w-1/ leading-tight2">
+            <div className="relative h-full ml-0 mr-0 sm:mr-10">
+                                <span
+                                    className="absolute top-0 left-0 w-full h-full mt-1 ml-1 rounded-lg"></span>
+                <div className="relative h-full p-5 bg-white border-2 rounded-lg">
+                    <div className="flex items-center -mt-1">
+                        <h3 className="my-2 text-3xl font-bold text-gray-800">{bigText}</h3>
+                    </div>
+                    <p className="mb-2 text-xl text-gray-600">{smallText}</p>
+                </div>
             </div>
         </div>
-
     )
 }

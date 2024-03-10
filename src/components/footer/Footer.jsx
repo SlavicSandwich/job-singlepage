@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="bg-black relative z-10">
-            <div className="mx-auto min-h-fit w-lvw max-w-screen-xl flex flex-col justify-between" >
+            <div className="mx-auto min-h-fit w-lvw max-w-screen-xl flex flex-col justify-between pt-20" >
                 <div
                     className=" flex pb-60 w-full justify-center align-middle flex-col gap-16 md:grid-cols-4">
                     <img src={"./src/img/index/0_oko_ 3.svg"} alt={"eye logo here"} className="w-1/5 mx-auto"/>
