@@ -12,7 +12,7 @@ const App = () => {
     // const clickHandler = () => {
     //   setHeading("Radical Rhinos");
     // };
-    useEffect(() =>{
+    useEffect(() => {
         wave();
     }, [])
     return (

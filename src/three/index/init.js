@@ -7,6 +7,16 @@ import Debris from "./Debris";
 import PostEffect from "./PostEffect";
 import {gsap} from "gsap";
 
+const abs = (value) => {
+    if (value < 0) return -value
+    else return value
+}
+
+function getVerticalScrollPercentage( elm ){
+    var p = elm.parentNode
+    return (elm.scrollTop || p.scrollTop) / (p.scrollHeight - p.clientHeight ) * 100
+}
+
 export default function () {
     const contents = document.querySelector('.js-contents');
     const dummyScroll = document.querySelector('.js-dummy-scroll');
@@ -76,31 +86,41 @@ export default function () {
         render();
         requestAnimationFrame(renderLoop);
     }
+
     const on = () => {
         window.addEventListener('resize', debounce(() => {
             resizeWindow();
         }), 1000);
-
         scrollManager.renderNext = () => {
+            console.log(getVerticalScrollPercentage(document.body))
+            if (abs(cameraBack.position.y / window.innerHeight) < 0.31 &&
+                sceneBack.background.r === 1 &&
+                sceneBack.background.g === 1 &&
+                sceneBack.background.b === 1) {
+                gsap.to(sceneBack.background, {
+                    duration: 1,
+                    r: 0,
+                    g: 0,
+                    b: 0
+                })
+            }
+            if (abs(cameraBack.position.y / window.innerHeight) > 0.31 &&
+                sceneBack.background.r === 0 &&
+                sceneBack.background.g === 0 &&
+                sceneBack.background.b === 0) {
+                gsap.to(sceneBack.background, {
+                    duration: 1,
+                    r: 1,
+                    g: 1,
+                    b: 1
+                })
+            }
             if (scrollManager.isValidSmooth()) {
                 cameraBack.position.y = scrollManager.hookes.contents.velocity[1] * 0.6;
                 // console.log(cameraBack.position.y)
-                if (cameraBack.position.y > -450) {
-                    gsap.to(sceneBack.background, {
-                        duration: 1,
-                        r: 0,
-                        g: 0,
-                        b: 0
-                    })
-                }
-                if (cameraBack.position.y < -450 && cameraBack.position.y) {
-                    gsap.to(sceneBack.background, {
-                        duration: 1,
-                        r: 1,
-                        g: 1,
-                        b: 1
-                    })
-                }
+                // console.log(cameraBack.position.y, window.innerHeight)
+                // console.log(sceneBack.background)
+
             } else {
                 // renderer.setClearColor(Math.floor(Math.random()*16777215))
                 cameraBack.position.y = scrollManager.scrollTop * -1;
