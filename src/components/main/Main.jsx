@@ -3,7 +3,7 @@ import CardSection from "./CardSection/CardSection.jsx";
 
 export default function Main() {
     return (
-        <div className={"w-lvw sm:max-w-screen-xl h-fit box-border flex flex-wrap relative top-0 right-0 left-0 z-50 ml-auto mr-auto"}>
+        <div className={"w-lvw lg:max-w-screen-xl h-fit box-border flex flex-wrap relative top-0 right-0 left-0 z-50 ml-auto mr-auto"}>
             <TextSection/>
             <CardSection/>
         </div>

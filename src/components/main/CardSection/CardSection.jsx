@@ -3,16 +3,10 @@ import Card from "./Card.jsx";
 export default function CardSection() {
     return (
         <section className="h-fit w-full text-black mt-20 mx-auto ">
-            {/*<div className="grid bg-gray-200 grid-cols-2 overflow-hidden rounded gap-1">*/}
-            {/*    <Card/>*/}
-            {/*    <Card/>*/}
-            {/*    <Card/>*/}
-            {/*    <Card/>*/}
-            {/*</div>*/}
             <div
                 className="container relative flex flex-col justify-between h-full max-w-7xl px-10 mx-auto xl:px-0 my-48">
                 <div className="w-full">
-                    <div className="flex flex-col w-full gap-5 mb-10 sm:flex-row">
+                    <div className={"-mx-4 flex-wrap p-8 flex"}>
                         <Card
                             smallText={"A decentralized application (dapp) is an application built on a decentralized network that combines a smart contract and a frontend user interface."}
                             bigText={"DAPP Development"}
@@ -25,8 +19,6 @@ export default function CardSection() {
                             smallText={"Web 3.0 is the third generation of Internet services that will focus on understanding and analyzing data to provide a semantic web."}
                             bigText={"Web 3.0 Development"}
                             image={"./src/img/index/Checked.svg"}/>
-                    </div>
-                    <div className="flex flex-col w-full gap-5 mb-5 sm:flex-row">
                         <Card bigText={"Project Audit"}
                               smallText={"A Project Audit is a formal review of a project, which is intended to assess the extent up to which project management standards are being upheld."}
                               image={"./src/img/index/Happy.svg"}/>
