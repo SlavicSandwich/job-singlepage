@@ -3,7 +3,7 @@ export default function Footer() {
         <footer className="bg-black relative z-10">
             <div className="mx-auto min-h-fit w-lvw max-w-screen-xl flex flex-col justify-between pt-5 sm:pt-20" >
                 <div
-                    className=" flex pb-40 sm:pb-60 w-full justify-center align-middle flex-col gap-16 md:grid-cols-4">
+                    className=" flex pb-40 sm:pb-60 w-full justify-center align-middle flex-col gap-10 sm:gap-16 md:grid-cols-4">
                     <img src={"./src/img/index/logo.gif"} alt={"eye logo here"} className="w-1/2 sm:w-1/5 mx-auto"/>
                     <p className="leading-tight text-center text-2xl sm:text-4xl font-bold text-gray-900 uppercase dark:text-white">Давайте
                         работать вместе.</p>
