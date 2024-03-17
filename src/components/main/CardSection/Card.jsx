@@ -14,7 +14,7 @@ export default function({image, bigText, smallText}){
         //     </div>
         // </div>
         <div className="w-full px-4 md:w-1/2 lg:w-1/3">
-            <div className="mb-9 bg-white rounded-xl py-8 px-7 shadow-md transition-all hover:shadow-lg sm:p-9 lg:px-6 xl:px-9">
+            <div className="mb-9 h-[400px]  bg-white rounded-xl py-8 px-7 shadow-md transition-all hover:shadow-lg sm:p-9 lg:px-6 xl:px-9">
                 <div className="mx-auto mb-7 inline-block">
                     <img src={image} className={"w-12"}/>
                 </div>
